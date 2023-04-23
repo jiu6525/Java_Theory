@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 조건문 : if 문 
+        // if(조건식){
+        //     조건식이 참일때 실행 할 실행문
+
+        // }
+            // 숫자를 입력받아 100~200사이이면 출력한다.
+        // 
+        var inData = prompt("숫자를 입력하세요.");
+        if(inData >= 100 && inData<=200){
+            document.write("<h1>" + inData+"</h1>");
+        }
+
+        if(inData){
+            document.write("<h2>",inData,"는 100보다 큰 값입니다.</h2>");
+        }else{
+            document.write("<h2>",inData,"는 100보다 작은 값입니다.</h2>");
+        }
+    </script>
+</body>
+</html>

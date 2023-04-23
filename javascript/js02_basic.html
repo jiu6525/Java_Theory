@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body id="main">
+    <h1>자바스크립트 변수, 상수</h1>
+    <script>
+        // 이름과 나이를 저장할 변수가 필요하다. 생략, var, let, const
+        // 변수     상수
+        var name = "홍길동"; //문자형 변수
+        name = "최길동";
+        document.write("name",name);
+
+        var age = 23; // number -> 989, 253.25
+        var bg = confirm("배경에 이미지를 설정할까요?");    //true, false
+        // true : 배경이미지 설정 CSS -> background-image
+        // 조건 : 연산식, 상수가 올수 있다. 단 연산식인 경우 계산결과가 논리형
+        if(bg){ //조건식 true일때 실행된다.
+            var bodyTag = document.getElementById("main");
+                //                          예약어.속성 ="속성값"
+            // document.getElementById("main").style.color ="#f00";
+            bodyTag.style.color ="#00f";
+            // CSS 속성이 -가 포함된 경우 background-image -> backgroundImage
+            //                           border-left-color -> borderLeftColor
+            document.getElementById("main").style.backgroundImage ="url(../img/배경.jpg)";
+            bodyTag.style.backgroundImage = "url(../img/배경화면.jpg)";
+        }
+        var userid = 12;
+        document.write(userid);
+    </script>
+</body>
+</html>

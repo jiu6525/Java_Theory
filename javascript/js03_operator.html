@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var n1 = 10;
+        var n2 = 4;
+        //산술연산자 : +, -, *, /, %(나머지), ++, --
+        var result = n1 * n2 + n2;
+
+
+        document.write("result->"+result);
+        document.write("<br/>result2->" + n1/n2);
+        document.write("<br/>result3->" ,n1+n2);
+        var mod = n1 % n2;
+        document.write("<br/>mode->",mod);
+
+        // n2의 값을 1증가하기
+        // n2 = n2 +1;     //n2 = n2 + 10;
+        // n2 += 1
+        // n2 ++ ;
+        ++n2;
+        document.write("<br/>n2 ->"+n2);
+
+        // n2++ 다른연산자를 먼저 계산하고 1증가한다.
+        var result4 = n2++ + 50;
+
+        document.write("<br/>result4 ->"+result4, "<br/>n2 ->"+n2);
+
+        var result5 = ++n2 + 10; //result=17, n2=7
+        document.write("<br/>result5-> ",result5, ",n2->",n2);
+
+        // 비교연산자
+        var a = 3;
+        var b = "3";
+        var r1 = a == b; // true -> 값만 비교
+        var r2 = a === b; // false -> 값과 데이터형 비교
+        console.log("r1->",r1);
+        console.log("r2->",r2);
+        
+        // n1 = 10;
+        // n1의 값이 100이상이면 true, 100미만이면 false
+        
+        var r3 = n1>=100;
+        console.log('r3->', r3);    //!r3
+
+        // n1의 값이 5~10사이면 true, 나머지는 false    5<=n1<=10   n1>=5 && n1<=10
+        n1 = 12;
+        var r4 = n1>=5 && n1<=10;
+        console.log("r4->",r4);
+
+        //삼항연산자
+            // (조건식)?참일때 실행할 값:거짓일때 실행될 값;
+        // var r5 = (n1>n2)? "n1은 n2보다 크다": "n1은 n2보다 작다";
+        var r5 = (n1>n2)? n1*2 : n2*3;
+        console.log("r5->",r5);
+    </script>
+</body>
+</html>

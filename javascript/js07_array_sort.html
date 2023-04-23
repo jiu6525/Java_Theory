@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{background: #ddd; margin: 10px;}
+
+    </style>
+</head>
+<body>
+    <div id="arrayData1"></div>
+    <div id="arrayData2"></div>
+    <div id="asc1"></div>
+    <div id="asc2"></div>
+    <div id="desc1"></div>
+    <div id="desc2"></div>
+
+    <script>
+        var num=[25,69,1,75,485,2,76];
+        var str=['orange','banana','apple','pineapple','peach','tomato','melon','mango'];
+
+        // DOM(Document Object Model)
+        document.getElementById("arrayData1").innerHTML = "<b>num->" + num+"</b>";// <b>num->25,69,1,...</b>
+        document.getElementById("arrayData2").innerHTML = "<i>str->"+str+"</i>";
+
+        // Ascending
+        // 문자데이터의 오름차순 정렬
+        str.sort();
+        document.getElementById("asc2").innerHTML = "string ascending -> "+str
+        // 숫자데이터의 오름차순 정렬
+        num.sort(function(x,y){return x-y});
+        document.getElementById("asc1").innerHTML = "number ascending ->" + num;
+
+
+        // Descending
+        // 문자데이터의 내림차순 정렬
+        // 오름차순으로 정렬후 뒤집기
+        str.reverse();
+        document.getElementById("desc2").innerHTML = "string descending -> "+str;
+
+        // 숫자데이터의 내림차순
+        num.sort(function(x,y){return y-x});
+        document.getElementById("desc1").innerHTML = "number descending->" + num;
+    </script>
+</body>
+</html>

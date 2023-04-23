@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #clock{
+            width : 300px; height:70px; line-height: 70px; font-size: 3em;
+            text-align: center; border: 2px solid green;
+        }
+
+        #num{
+            width: 300px;
+            height:300px;border:2px solid red;
+            line-height:300px;
+            border-radius:150px; font-size:5em;
+        }
+
+
+
+        
+    </style>
+
+    <script>
+        // 현재 시분초를 구한는 함수
+        function clockView(){
+            var now = new Date(); //날짜, 시간
+            var hour = now.getHours();
+            var minute = now.getMinutes();
+            var second = now.getSeconds();
+
+            document.getElementById("clock").innerText = hour + ":" + minute + ":" + second;                // 12:15:21
+        }
+
+    </script>
+</head>
+<body>
+    <h1>setInterval</h1>
+    <div id="clock"></div>
+    <script>
+        //일정한 시간 간격으로 반복호출하는 메소드(함수)
+        //  호출할함수  ,시간간격(밀리초) 1000=1초
+        var interTimer = setInterval("clockView()",1000);    //clearInterval(interTimer)
+
+    </script>
+    <h1>setTimeout</h1>
+    <div id="num"></div>
+    <script>
+        // setTimeout을 이용한 함수 재호출
+        var n =1;
+        function setNum(){
+            document.querySelector("#num").innerText = n;
+            //          호출함수,   시간간격
+            var timer = setTimeout("setNum()",500);
+            if(n>100){// n이 100보다 크면 timeout이 중지된다.
+                clearTimeout(timer); //반복중단
+
+            }
+
+            n++;
+        }
+        setNum();
+    </script>
+</body>
+</html>

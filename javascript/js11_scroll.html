@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        var imgName = ['배경.jpg','배경화면.jpg','jeju_map.jpg'];
+        function setImage(){
+            var imgTag = "";
+            for(var i =0; i<imgName.length;i++){//0,1,2,3,4
+                imgTag += "<img src ='../img/" +imgName[i]+"'/><br/>"
+
+            }
+            console.log(imgTag);
+            document.getElementById("imgView").innerHTML = imgTag;
+
+            console.log(window.scrollY, document.documentElement.scrollTop)
+
+            //  windowscroll쌔(x, y) : 절대좌표, window.scollBy(x, y) : 상대좌표
+        }
+        function scrollAuto(){
+            window.scrollBy(0, 10);
+            console.log('y=', window.scrollY);
+        }
+        var timer;
+    </script>
+</head>
+<body onload="setImage(); timer = setInterval('scrollAuto()',1000);">
+    <h1>스크롤 이벤트</h1>
+    <!-- onmouseover(onmouseenter) : 객체의 마우스가 들어오면 발생하는 이벤트 
+         onmouseout(onmouseleave) : 객체의 마우스가 나가면
+    -->
+
+    <div id="imgView" onmouseover="clearInterval(timer)" onmouseout="timer=setInterval('scrollAuto()',500)"></div>
+</body>
+</html>

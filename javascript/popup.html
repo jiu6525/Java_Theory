@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        document.title = "자바스크립트";
+        function chkState(){
+            // checkbox의 체크유무를 확인하여 체크상태(ture)일 쿠키를 저장한다.
+            var boo = document.getElementById("chk").checked;
+            if(boo){ //checked가 true일때 실행
+                // 현재날짜
+                var now = new Date();
+                console.log(now);
+
+                // 오늘일을 구한다.
+                var date = now.getDate();
+
+                // 일변경하기
+                now.setDate(date+6);
+                console.log(now);
+
+                //쿠키기록
+                //               변수=상수;저장위치;소멸날짜
+                document.cookie = "popup=yes;path=/;expires="+now;
+            }
+            window.close();
+        }
+
+    </script>
+</head>
+<body>
+    <img src="../img/배경.jpg" width="100%"/>
+    <div>
+        <input type="checkbox" name="chk" id="chk">오늘그만보기
+        <input type="button" value="close" id="closeOk" onclick="chkState()"/>
+
+    </div>
+</body>
+</html>

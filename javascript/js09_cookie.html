@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cookie를 이용한 팝업창 띄우기</title>
+    <script>
+        function popupOpen(){
+            // 쿠키값 가져오기
+            var cookie = document.cookie;   //"popup=yes"
+            console.log(cookie);
+
+            // 문자열처리 메소드
+            console.log(cookie.length);
+            console.log(cookie.substring(2));
+            console.log(cookie.indexOf("yes"));
+            console.log(cookie.indexOf("test"));
+
+
+            if(cookie.indexOf("popup=yes")== -1){
+            // 쿠키정보를 확인하고 쿠키가 없으면 팝업창을 띄우기
+            window.open("popup.html","p","width350,height=400");
+        
+        }
+        }
+
+    </script>
+</head>
+<body onload="popupOpen()">
+    <h1>cookie를 이용한 팝업 띄우기</h1>
+</body>
+</html>
