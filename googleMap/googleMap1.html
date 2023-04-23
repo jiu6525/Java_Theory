@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 
+	https://cloud.google.com/maps-platform/에서 인증키 받기
+	
+	
+ -->
+ <style>
+ 	#gMap{height:700px; border:1px solid gray;}
+ </style>
+ <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPsYtE8MF9KfQur6CPmM3Rp0YoXmnsnlM&callback=initMap"></script>
+</head>
+<body>
+<div id="gMap"></div>
+<script>
+	/*지도의 표시할 위도경도*/
+	var latitude = 37.5729503;
+	var longitude = 126.9793578
+	function initMap(){
+		//지도의 가운데를 지정하는 객체	 위도, 경도
+		var myCenter = new google.maps.LatLng(latitude, longitude);
+		
+		//지도에 사용한 옵션
+		var mapProperty = {
+				center : myCenter,
+				zoom : 14,// 0~21까지의 값을 사용한다. 숫자가 클수록 확대된다.
+				mapTypeId : 'roadmap'//google.maps.MapTypeId.ROADMAP // 지도종류 (ROADMAP, HYBRID, STEELITE, TERRAIN)
+				
+		}
+		
+		
+		//맵생성							지도를 표시할 곳					, 옵션
+		var map = new google.maps.Map(document.getElementById('gMap'), mapProperty);
+		//---------------------------------------------------------------------------------
+		
+		//마커표시
+		var marker= new google.maps.Marker({
+			position : myCenter,//마커를 표시할 곳
+			map : map,
+			icon : 'gmap_pin.png',//마커로 사용할 이미지
+			title : '마커에 표시되는 풍선도움말'
+		});
+		
+		marker.setMap(map);
+		
+		//마커 클릭시 대화상자 표시하기
+		var information = "위도 : " + latitude
+		information += "<br/>경도 : " + longitude
+		information += "<br/><a href='https://google.co.kr' target='_blank'><img src='../img/배경화면.jpg' width='80' height='50' : ></a>";
+		
+		var infor = new google.maps.InfoWindow({content:information});
+		
+		//마커 클릭시 대화상자가 나오도록 이벤트처리하기
+		google.maps.event.addListener(marker,'click', function(){ infor.open(map, marker) });
+		
+		// 마커를 기준으로 반경표시하기
+		var myCity = new google.maps.Circle({
+			center : myCenter// 원의 중심위치
+			, radius : 500 // m단위
+			, strokeColor : '#f00'// 선의 색상
+			, strokeOpacity : 0.4// 선의 투명도 0~1
+			, strokeWidth : 5 // 선의 두께 px
+			, fillColor : '#0f0' // 배경색
+			, fillOpacity : 0.5 // 배경의 투명도
+		});
+		myCity.setMap(map);
+	}
+</script>
+</body>
+</html>
+

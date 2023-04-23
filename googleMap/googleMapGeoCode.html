@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPsYtE8MF9KfQur6CPmM3Rp0YoXmnsnlM&callback=initMap"></script>
+
+<style>
+	#roadView{
+		width:100%; height:800px; border:2px solid #ddd;
+	}
+	#search{
+		position:absolute;
+		top:50px;
+		left:45%;
+	}
+	#searchList{
+		border:1px solid gray;
+		background:#ddd;
+		opacity:0.8;
+		position:absolute;
+		width:300px;
+		height:600px;
+		top:150px;
+		left:50px;
+		overflow:scroll;
+	}
+	.c{
+		background:white; margin:5px; font-size:0.8em; font-weight:bold; padding:5px;
+	}
+</style>
+</head>
+<body>
+<div id="gMap">
+	<div id="roadView"></div>
+	<div id="search">
+		<input type="text" id="address" value="잠실역"/>
+		<input type="button" id="geoSubmit" value='geoCode' onclick="geocodeAddress()"/>
+	</div>
+	<div id="searchList">
+	</div>
+</div>
+<script>
+	var latitude = 37.5729503;
+	var longitude = 126.9793578;
+	var map;
+	var geoCoder;
+	function initMap(){
+	
+		
+		var myCenter = new google.maps.LatLng(latitude, longitude);
+		var option = {
+				center : myCenter,
+				zoom : 12,
+				mapTypeId : google.maps.MapTypeId.ROADMAP
+		}
+		map = new google.maps.Map(document.getElementById('roadView'), option);
+	
+		//지오크드 객체 만들기
+		geoCoder = new google.maps.Geocoder();
+	
+	}
+	
+	//입력받은 검색어로 지도정보 표시하기
+	function searchAddress(addr){
+		
+		//전달받은 검색어를 이용하야 주소정보 찾기
+		geoCoder.geocode({'address':addr} //검색어
+				,function(results, status){ // results : 지도찾은 정보, status:성공(OK)여부, ZERO_RESULTS
+					console.log(status, results);
+				if(status == 'OK'){//주소찾음
+					// 주소로 지도를 이동
+					var la = results[0]['geometry']['location']['lat']();// 위도	
+					var lng = results[0]['geometry']['location']['lng']();// 경도 	results[0].geometry.location.lng()
+					
+					if(results[0].address_components.length>=6){
+						var searchAddr = results[0].address_components[3].long_name;
+					    searchAddr += results[0].address_components[2].long_name;
+					    searchAddr += results[0].address_components[1].long_name;
+					    searchAddr += results[0].address_components[0].long_name;
+					}else{
+						var searchAddr = results[0]['formatted_address'];// 주소구하기
+					}
+					
+					
+						
+					//지도의 center위치 변경하기
+					map.setCenter(results[0].geometry.location);
+			
+					var marker =new google.maps.Marker({
+						map:map,
+						icon:'gmap_pin.png',
+						title:searchAddr.substring(4),// substring 문자열 제거
+						position:results[0].geometry.location
+					});
+					
+					//
+					var mapInfo = "<div class='c'>위도 : " + la;
+					mapInfo += "<br/>경도 : " + lng;
+					mapInfo += "<br/>주소 : " + searchAddr+"</div>";
+					
+					document.getElementById('searchList').innerHTML = document.getElementById('searchList').innerHTML + mapInfo
+					
+					//마커를 클릭하면 대화상자 보여주기
+					var popWin = new google.maps.InfoWindow({content:mapInfo});
+					
+					//마우스 오버와 아웃 이벤트처리하기
+					google.maps.event.addListener(marker, 'mouseover', function(){popWin.open(map, marker)});
+					google.maps.event.addListener(marker, 'mouseout', function(){popWin.close(map, marker)});
+					
+					}else{ //주소 못찾음
+						alert("존재하지 않는 주소입니다.");
+					}
+				  }//콜백함수
+		);//geocode
+	}
+	
+	
+	//검색어 입력후 클릭시 
+	function geocodeAddress(){
+		var addr = document.getElementById("address").value;
+		if(addr==''){
+			alert('지역명 또는 건물명을 입력후 검색하세요');
+		}else{
+			searchAddress(addr);
+		}
+		
+	}
+</script>
+</body>
+</html>
