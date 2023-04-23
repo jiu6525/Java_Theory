@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script>
+	$(function(){
+		//위치선택자
+		$('.lst>li:odd').css('background-color','yellow');
+		$('.lst>li:even').css('color','red');
+		$('.lst>li:first').css('background-color','#ddd');
+		$('.lst>li:last').css('color','green');
+		
+		// 함수형태의 필터 선택자
+		// 				index
+		$('.lst2>li').eq(2).css('color','red');
+		$('.lst2>li:lt(4)').css('background-color','pink');
+		$('.lst2>li:gt(4)').css('color','blue');// index값이 4보다 클때 선택
+		$('.lst2>li').slice(3).css('font-size','2em');// index 값이 3부터 선택
+		
+		$('.lst2>li:contains("네")').css('background-color','green');//특정 내용이 포함된 경우 선택
+		$('.lst2>li:has("b")').css('background','cyan');
+		
+		$('.lst2>li:not(":first")').css('background-color','#ddd');
+	});
+</script>
+</head>
+<body>
+	<ul class='lst'>
+		<li>네이버</li>
+		<li>네이버</li>
+		<li>카카오</li>
+		<li>카카오</li>
+		<li>라인</li>
+		<li>라인</li>
+		<li>쿠팡</li>
+		<li>쿠팡</li>
+		<li>배달의 민족</li>
+		<li>배달의 민족</li>
+	</ul>
+	
+	<ul class='lst2'>
+		<li>네이버</li>
+		<li>네<b>이</b>버</li>
+		<li>카카오</li>
+		<li>카카오</li>
+		<li>라인</li>
+		<li>라인</li>
+		<li>쿠팡</li>
+		<li>쿠팡</li>
+		<li>배달<b>의 </b>민족</li>
+		<li>배달의 민족</li>
+	</ul>
+</body>
+</html>

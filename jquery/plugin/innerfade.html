@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<!-- 
+	https://gist.github.com/coolniikou/665255
+	
+	1. jquery.js
+	2. innerfade.js
+
+ -->
+ <style>
+ 	ul, li{margin:0; padding:0; list-style-type:none}
+ 	#innerImg img{width:400px; height:300px}
+ </style>
+ <script src="jquery.innerfade.js"> </script>
+ <script>
+ 	$(function(){
+ 		$("#innerImg").innerfade({
+ 			animationtype:'slide',//기본 : 'fade', 'slide'
+ 			speed: 'slow' ,//'slow', 'fast', 'normal', 밀리초
+ 			timeout : 2000,//쇼대기시간
+ 			type : 'random' //'random', 기본:''sequence', 'random_start'
+ 		});
+ 	});
+ </script>
+</head>
+<body>
+	<ul id="innerImg">
+		<li><a href="https://www.nate.com"><img src="/webApp/img/배경.jpg"></a></li>
+		<li><a href="https://www.nate.com"><img src="/webApp/img/배경화면.jpg"></a></li>
+		<li><a href="https://www.nate.com"><img src="/webApp/img/배경.jpg"></a></li>
+		<li><a href="https://www.nate.com"><img src="/webApp/img/배경화면.jpg"></a></li>
+		<li><a href="https://www.nate.com"><img src="/webApp/img/배경.jpg"></a></li>
+		<li><a href="https://www.nate.com"><img src="/webApp/img/배경화면.jpg"></a></li>
+	</ul>
+</body>
+</html>

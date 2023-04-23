@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<style>
+	img{width:100%}
+	div{width:600px;margin:0 auto;}
+</style>
+<script>
+	$(function(){
+		var img = $('img:eq(0)')
+		
+		//숨기기
+		$('#hide').click(function(){
+			//			속도:밀리초, 'slow', 'fast', 'normal'
+			 img.hide(3000);
+		});
+		
+		//보여주기
+		$('#show').on('click',function(){
+			img.show('fast');
+		});
+		
+		//toggle
+		$("#toggle").on('click',function(){
+			img.toggle('slow');
+		});
+		
+		//fadeIn
+		$('#fadeIn').click(function(){
+			img.fadeIn(3000);
+		});
+		
+		//fadeOut
+		$('#fadeOut').click(function(){
+			img.fadeOut(3000);
+		});
+		
+		//fadeToggle
+		$('#fadeToggle').click(function(){
+			img.fadeToggle(2000);
+			
+		});
+		
+		//slideUp
+		$('#slideUp').click(function(){
+			img.slideUp(3000);
+		});
+		
+		//slideDown
+		$('#slideDown').click(function(){
+			img.slideDown(3000);
+		});
+		
+		//slideToggle
+		$('#slideToggle').click(function(){
+			img.slideToggle(3000);
+		});
+	});
+
+</script>
+</head>
+<body>
+<div>
+	<input type="button" value="hide(숨기기)" id="hide"/>
+	<input type="button" value="show(보이기)" id="show"/>
+	<input type="button" value="toggle" id="toggle"/>
+	<input type="button" value="fadeIn(진하게)" id="fadeIn"/>
+	<input type="button" value="fadeOut(흐리게)" id="fadeOut"/>
+	<input type="button" value="fadeToggle" id="fadeToggle"/>
+	<input type="button" value="slideUp" id="slideUp"/>
+	<input type="button" value="slideDown" id="slideDown"/>
+	<input type="button" value="slideToggle" id="slideToggle"/>
+</div>
+<hr/>
+<img src="../img/배경화면.jpg"/>
+<img src="../img/배경.jpg"/>
+</body>
+</html>

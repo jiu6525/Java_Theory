@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<style>
+	div{border:2px solid red; margin:5px;}
+	.c1{color:blue; border:1px solid gray;}
+</style>
+<script>
+	$(function(){
+		//객체 감싸기
+		//wrap() : 선택자를 특정 태그로 각각 감쌈
+		$('.c1').wrap('<h1/>');
+		
+		//wrapAll() : 선택자를 특정태그로 한번에 감쌈
+		$('.c2').wrapAll('<div/>');
+		
+		//wrapInner() : 선택자의 하위를 특정 태그로 감쌈
+		$('.c2').wrapInner('<b/>');
+		
+		//unwrap() : 선택자의 부모를 삭제
+		$('.c1').unwrap();
+		
+		// each() : 선택한 객체를 순서대로 반복적용할수 있는 반복문
+		//$('#list>li').text("<img src='../img/배경.jpg'/>");
+		//$('#list>li').html("<img src='../img/배경.jpg'/>");
+        //							0,1	   li,li,li....
+		$("#list>li").each(function(idx, obj){
+			$(obj).html("each()를 이용한 반복처리("+ idx +")");
+			$(obj).addClass('c1');
+		});
+        
+        // map() : 배열을 이요한 반복문
+        var hobby = ['걷기','달리기','경보','싸이클','바이크','뒤로걷기','옆으로걷기'];
+        //배열을 이용해 <select>태그를 만들어 body의 첫번째 태그로 추가
+        
+        var tag = "<select>";
+        
+        hobby.map(function(txt , idx){
+        	tag += "<option>"+txt+"_"+idx+"</option>";
+        });
+        tag += "</select>";
+        
+        console.log(tag);
+        
+        // append() : 마지막으로 들어감... 원래내용 안지원짐
+        // html() : 원래있는 내용이 지워지고 새로운 내용으로 변경
+        // prepend() : 처음으로 들어감... 원래내용 안지워짐
+        $('body').prepend(tag);
+	});
+
+</script>
+</head>
+<body>
+<div class="c1">객체조작 메소드 1111</div>
+<div class="c1">객체조작 메소드 2222</div>
+<div class="c2">객체조작 메소드 3333</div>
+<div class="c2">객체조작 메소드 4444</div>
+
+<ul id="list">
+	<li>객체조작 메소드 AAAA</li>
+	<li>객체조작 메소드 BBBB</li>
+	<li>객체조작 메소드 CCCC</li>
+	<li>객체조작 메소드 DDDD</li>
+	<li>객체조작 메소드 EEEE</li>
+	<li>객체조작 메소드 FFFF</li>
+	<li>객체조작 메소드 GGGG</li>	
+
+</ul>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<style>
+	.txt{background-color:#0f0; font-size:2em;}
+</style>
+<script>
+	$(function(){
+		// li태그에 마우스 오버시 - mouseover, mouseenter
+		// li태그에 마우스 아웃시 - mouseout, mouseleave
+		var cnt = 0;
+		// hover(over,out) 
+		$('li').hover(function(){
+			//over시 실행할 함수
+			$(this).css('color','red');
+			cnt++;
+			// over이벤트가 5회 발생하면 이벤트가 종료
+			if(cnt>=5){
+				$(this).off();// off(): 이벤트 중단
+			}
+		},function(){
+			//out시 실행함수
+			$(this).css('color','green');
+		});
+		
+		// one() : 이벤트가 1번만 발생한다.
+		$('h2').one('click',function(){
+			$(this).addClass('txt');
+			console.log('one()함수 실행됨');
+		});
+	});
+	
+</script>
+</head>
+<body>
+<ul>
+	<li>브랜드</li>
+	<li>식품</li>
+	<li>가구</li>
+	<li>가전</li>
+	<li>자동차</li>
+</ul>
+<h2>one() 으로 한번 이벤트 발생하기</h2>
+<h2>one() 으로 한번 이벤트 발생하기</h2>
+<h2>one() 으로 한번 이벤트 발생하기</h2>
+<h2>one() 으로 한번 이벤트 발생하기</h2>
+</body>
+</html>

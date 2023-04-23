@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- jquery 외부파일로 연결 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src='jquery-3.6.3.min.js'></script>
+<style>
+	#view{background:yellow;}
+</style>
+<script>
+	console.log(1111);
+	//jquery code
+	//document에서 ready이벤트가 발생하면 function() 함수를 실행한다.
+	$(document).ready(function(){
+		//jquery 실행문
+		$("#view").append("<h2>JQuery 영역이 실행됨</h2><hr/>");
+		console.log(2222);
+		
+	});
+	console.log(3333);                                                  
+	document.write("자바스크립트 실행됨");
+	//jquery code
+	
+</script>
+</head>
+<body>
+	<div id="view"></div>
+	<h1>Jquery Test....</h1>
+</body>
+</html>

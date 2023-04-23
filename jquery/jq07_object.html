@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<style>
+	ul, li{list-style-type:none; margin:0; padding:0;}
+	li{float:left; width:100px; height:100px; margin:5px; padding:5px; border:1px solid gray}
+	li>img{width:100%;height:100%;}
+</style>
+<script>
+	$(function(){
+		// before() : 선택자 이전에 객체 추가
+		$('#img').before("<li id='s'><img src='../img/배경화면.jpg'/></li>");
+		//insertBefore() : 선택자 이전에 객체 추가
+		$("<li><img src='../img/nate_logo.png'/></li>").insertBefore("#img")
+		
+		// append() : 선택자의 안에 마지막 객체로 추가		선택자.append(내용)
+		// appendTo() : 선택자의 안에 마지막 객체로 추가		내용.appendTo(선택자)
+		
+		$('ul').append("<li><img src='../img/nate_logo.png'/></li>");
+		$("<li><img src='../img/배경.jpg'/></li>").appendTo('ul');
+		
+		/*
+		setInterval(function(){
+			$("li:first").appendTo('ul');},2000);
+		*/
+		
+		// prepend() : 선택자의 제일앞에 객체 추가		$(선택자).prepend(내용)
+		// prependTo() : 선택자의 제일앞에 객체 추가	$(내용).prependTo(선택자)
+		
+		
+		//clone() : 선택자를 복사 한다. - 한번만 사용가능
+		var imgClone = $("#img").clone();//	<li id="img"><img src="../img/배경.jpg" /></li>
+		
+		// attr() : 태그의 속성을 얻어오거나 속성을 변경할때 - 속성과 속성값이 있을때
+		// prop() : 태그의 속성을 얻어오거나 속성을 변경할때 - 속성만 있을때
+		imgClone.attr("id", "img2");
+		$('ul').prepend(imgClone);
+		
+		// empty() : 선택자의 내용만 지우기
+		$("#img").empty();
+		
+		// remove() : 선택자와 내용을 지운다.
+		$("#s").remove();
+		
+		//replaceWith() : 선택자의 객체를 다른 객체로 치환한다.	$(선택자).replaceWith(내용);
+		//replaceAll() : 선택자의 객체를 다른 객체로 치환한다.		$(내용).replaceAll(선택자);
+		
+		$("#img").replaceWith("<li>ReplaceWith<hr>내용바꾸기</li>");
+		$("<li><h2>치환</h2></li>").replaceAll("#img2");
+	});
+</script>
+</head>
+<body>
+<ul>
+	<li id="img"><img src="../img/배경.jpg" /></li>
+</ul>
+</body>
+</html>

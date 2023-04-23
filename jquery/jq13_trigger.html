@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<style>
+	img{width:300px; height:300px; border:5px solid #ddd;}
+</style>
+<script>
+	$(function(){
+		//body 의 첫번째 이미지가 click이벤트가 발생
+		
+		var imgTag = "<img src='../img/배경화면.jpg'/>";
+		$('img').first().on('click',function(){
+			$('body').append(imgTag);
+		});
+		
+		//trigger() : 이벤트를 자동 발생 시킨다.
+		// 1초에 한번 이벤트 발생시키기	- setInterval, setTimeout
+		
+		setInterval(function(){
+			//						 이벤트종류
+			$("img").first().trigger('click');
+		}, 1000);
+	});
+</script>
+</head>
+<body>
+<img src='../img/배경.jpg'/>
+</body>
+</html>

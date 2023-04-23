@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="icon" type="image/png" href="http://example.com/myicon.png">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 
+	http://jqeuryui.com/download/all 다운로드
+	
+	1.jqueryui 스타일
+	2.jquery
+	3. jqueryui 자바스크립트
+
+ -->
+<link rel="stylesheet" href="/webApp/jquery/jquery-ui.min.css" type="text/css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="/webApp/jquery/jquery-ui.min.js"></script>
+<style>
+	#dialogOpen,#schView{
+		width:600px; font-size:1.5em; text-align:center; margin:0 auto;
+	}
+	#dialogOpen{background:#ffd}
+	#schView{background:#fdf;}
+
+	/*다이얼로그의 스타일*/
+	#dialog input[type=text], #dialog label{
+		margin-bottom:12px; padding:5px; width:95%;
+	}
+</style>
+<script>
+	$(function(){
+		// 일정등록 클릭시 다이얼로그 창 보여주기
+		$("#dialogOpen").click(function(){
+			$("#dialog").dialog('open');
+		});
+		// dialog 플러그 세팅
+		$('#dialog').dialog({
+			autoOpen:false// 기본 :true(보임), false(안보임)
+			, buttons:{
+				등록 : function(){
+					var name = $("#event-name").val();
+					var date = $("#event-date").val();
+					
+					$("#schView").append("<p>"+date+":" + name + "</p>");
+					
+					//초기화
+					$("#event-name").val("");
+					$('#event-date').val("");
+					
+				},
+				초기화 : function(){
+					//초기화
+					$("#event-name").val("");
+					$('#event-date').val("");
+				},
+				종료 : function(){
+					//초기화
+					$("#event-name").val("");
+					$('#event-date').val("");
+					
+					$('#dialog').dialog('close');
+				}
+			}//buttons
+			,modal : true //true: 모달사용, false:모달사용안함
+		});
+		
+		//날짜 입력박스 datepicker 셋팅
+		$("#event-date").datepicker({
+			dateFormat : 'yy년 mm월 dd일'	,
+			numberOfMonths:3 //한번에 표시할 개월수
+		});
+		
+	});
+</script>
+<script>
+
+</script>
+</head>
+<body>
+<div id="dialogOpen">일정등록</div>
+<hr/>
+<div id="schView">일정표시하는 곳<br/></div>
+
+<!--  다이얼로그 창만들기 -->
+<div id='dialog' title='JQuery 다이얼로그'><!--  title속성값이 일정등록창의 제목으로 사용됨 -->
+	<h2>일정을 등록하세요</h2>
+	<label for='event=name'>일정이름 :</label><input type="text" id='event-name'/>
+	<label for='event=date'>날짜선택 :</label><input type="text" id='event-date'/>
+
+</div>
+</body>
+</html>

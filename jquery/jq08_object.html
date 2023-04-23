@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script>
+	$(function(){
+		// $('div:first')
+		$('div:eq(0)').css('border','1px solid red');
+		$('div:gt(0)').css('width','300px').css('height','350px').css('background-color','pink')
+					  .css('border', '10px solid gray');
+		$('div:nth-child(3)').css('position','absolute').css('left','400px').css('top','150px')
+							 .css('margin', '50px').css('padding','20px').css('background-color','lightblue');
+		
+		// 세번째 div의 폭과 높이구하기 - border와 margin을 제외한 폭과 높이
+		var width= $("div:eq(2)").width();
+		var height= $("div:eq(2)").height();
+		
+		$("div:eq(2)").append("<h2>width= "+width+", height= "+height+"</h2>");
+		
+		//$("div:eq(2)").width("450px");
+		// innerWirth(), innerHeight() : padding을 포함한 폭과 높이를 구한다.
+		var innerWidth = $("div:last").innerWidth();
+		var innerHeight = $('div:last').innerHeight();
+		$('div:last').append("<h2>iWidth=" + innerWidth+", iHeight= "+ innerHeight+"</h2>");
+		
+		// outerWidth(), outerHeight() : border와 padding을 포함한 폭과 높이를 구한다.
+		$('div:last').append("<h2>oWidth="+ $('div:last').outerWidth() + ", oHeight="+ $('div:eq(2)').outerHeight()+"</h2>");
+		
+		// position() : 좌표를 구한다(left, top) - margin포함하여 좌표구하기
+		$('div:eq(1)').append('<br/>position().left='+ $('div:last').position().left
+				+ ', position().top=' + $('div:last').position().top);
+		
+		// offset() : 좌표를 구한다.(left, top) - margin, border를 제외한 좌표
+		var xY = $('div:last').offset();
+		$('div:eq(1)').append('<br/>offset().left='+ xY.left + ', offset().top'+ xY.top);
+		
+		// scroll바의 위치를 설정하거나 구하기
+		$(document).scrollTop(150);	//$(window).scrollTop(150);
+		$(document).scrollLeft(180); //$(window).scrollTop(150);
+		
+		$('div:eq(1)').append('<br/>scrollTop()=' + $(window).scrollTop()+", scrollLeft()="+ $(document).scrollLeft());
+	});
+	
+		
+</script>
+</head>
+<body>
+	<div>수치조작메소드</div>
+	<div><h2>12345</h2></div>
+	<div></div>
+</body>
+</html>

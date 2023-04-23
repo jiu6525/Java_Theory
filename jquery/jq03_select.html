@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script>
+	
+	//document.getElementById('site').style.fontsize = '2em'; -> javascript 글자변경
+	$(function(){
+		// * : 전체선택자(모든 태그를 선택한다.)
+		$('*').css('color', 'orange').css('font-size','20px')
+		// 태그선택자, 아이디선택자(#), 클래스선택자(.)
+		$('h1').append(' 태그선택자');
+		$('li.addr').css('text-decoration','underline');
+		$('#site>li.sub').css('color','red');
+		$('body li.addr').css('background-color','gray');
+		
+		//속성선택자			val() : 컴퍼넌트의 값을 처리
+		console.log(		$('input[type=text]').val()			);
+		console.log($('li.addr').css('text-decoration'));
+		$('input[type=text]').val("바뀐문자");
+		
+		// 선택자:필터선택자		- 가상클래스
+		var txt = $('#flower>option:selected').val();
+		console.log('txt=',txt);
+	});
+</script>
+<style>
+	/*#site{
+		font-size:2em;
+	}*/
+</style>
+</head>
+<body>
+<h1>기본선택자</h1>
+<ul id="site">
+	<li>네이트</li>
+	<li class="addr">다음</li>
+	<li class="addr sub">네이버</li>
+	<li>구글</li>
+</ul>
+
+<div id="f">
+	<input type="text" value="속성선택자"/><br/>
+	<input type="password"/><br/>
+	<input type="radio"/><br/>
+	<input type="checkbox"/><br/>
+	<select id="flower">
+		<option >장미</option>
+		<option>해바라기</option>
+		<option value="해바라기">튤립</option>
+		<option value="cosmos" selected>코스모스</option>
+	</select>
+	
+</div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 
+	http://jqueryui.com/easing
+	https://jqeuryui.com/download/all에서 jquery-ui-1.13.2.zip를 다운로드 한다.
+	
+	1. jquery-ui.min.css
+	2. jquery
+	3. jquery-ui-min.js
+
+ -->
+ <link rel="stylesheet" href="jquery-ui.min.css" type="text/css"/> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="jquery-ui.min.js"></script>
+<style>
+	div{width:100px;height:100px;position:relative;border:1px solid #ddd;}
+	#d1{background-color:orange;}
+	#d2{background-color:yellow;}
+	#d3{background-color:green;}
+</style>
+<script>
+	$(function(){
+		//객체가 움직이도록 설정
+		// slow, fast, normal, 밀리초
+		$("#d1").animate({left:800, width:200, top:500, opacity:0.2}, 3000, 'easeOutBounce');
+		
+		$("#d2").animate({left:900, top:100},4000).animate({left:300, top:20, height:50}, 3000)
+				.animate({top:600, left:800}, 4000,'easeOutBounce',function(){
+					$("#d3").css('background-color','blue');
+					alert('콜백함수가 실행됨');
+				});
+		
+		
+		// delay() : 애니메이션 출발전 대기시간
+		$("#d3").delay(2000).animate({left:900, top:50, width:200, height:200},5000);
+		
+		
+		//stop() : 애니메이션 중지
+		$("#d1, #d2, #d3").mouseover(function(){
+			//$(this).stop();	// 현재 진행중인 애니메이션만 중지
+			$(this).stop(true); // 하위애니메이션 중지
+			
+		});
+	});
+</script>
+</head>
+<body>
+<div id="d1"></div>
+<div id="d2"></div>
+<div id="d3"></div>
+</body>
+</html>

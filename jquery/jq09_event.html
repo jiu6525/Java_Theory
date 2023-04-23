@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<style>
+	.backcolor{background-color:orange}
+</style>
+<script>
+	$(function(){
+		//이벤트 처리 방법 1 --------------------
+		//	click	-> 		onclick
+		/*
+		$('h1').click(function(){
+			//실행문;
+			$('div').append("h1태그가 클릭됨<br/>");
+			
+			//this : 이벤트가 발생한 h1태크
+			//$(this).css('background-color','orange');
+			$(this).toggleClass('backcolor');
+		});*/
+		//이벤트 처리 방법 2-------------------------------
+		//		   이벤트종류
+		$('h1').on('click',function(){
+			$(this).css('background-color','lightblue');
+		});
+		
+		//이벤트 처리 방법 3-------------------------------
+		// mouseover, mouseout
+		// mouseenter, mouseleave
+		/* json처리
+			회원정보
+			var member = {
+				username : "홍길동"
+				tel : "010-1234-6789"
+				memberOutput : function(){
+					console.log('이름 =','hong gil dong')
+				}
+			}
+		*/
+		//이벤트 처리방법 4-------------------------------
+		//over시 핑크, out시 그레이
+		
+		$('h1').on({mouseenter:function(){
+						//실행문
+						$(this).css('background-color','pink');
+					}, mouseleave:function(){
+						//실행문
+						$(this).css('background-color','#ddd');
+					}});
+		
+		//이벤트 처리 방법5-------------------------------
+		//click, focus이벤트가 같은 작업을 하는 경우
+		/*
+		$('button').on('click focus',function(){
+			$(this).css('background-color','olive').css('color','#fff');
+			
+		});*/
+		//이벤트 처리방법6-------------------------------
+		//ajax, jquery, javascript로 이미 로딩된 페이지의 일부 내용이 변경된 경우
+		//변경된 내용에서 이벤트가 발생하면 document객체를 선택자 이벤트 처리하여야 한다.
+		// 			   이벤트 종류 선택자    이벤트 발생시 실행 함수
+		/*
+		$(document).on('click', 'h1#h', function(){
+			$(this).css('color','red');
+			
+		});
+		
+		//이벤트 처리방법 7-------------------------------
+		document.getElementById('h').addEventListener('click',function(){
+			$(this).css('font-size','3em');
+		});
+		*/
+		// 기본이벤트 해제
+		$("a[href$='nate.com']").on('click',function(){
+			//a태ㅑ그의 기본 이벤트 해제
+			event.preventDefault();
+			console.log('이벤트발생함..........');
+			$(this).css('background-color','pink');
+		});
+	});
+</script>
+</head>
+<body>
+<h1>jQuery 이벤트 처리1</h1>
+<h1 id="h">jQuery 이벤트 처리2</h1>
+<h1>jQuery 이벤트 처리3</h1>
+<h1>jQuery 이벤트 처리4</h1>
+<div style="background-color:yellow"></div>
+<button>1111111</button>
+<button>AAAAAAA</button>
+<button>가나다라마바</button>
+<hr/>
+<a href="http://www.nate.com">클릭하세요..(nate)</a>
+<a href="http://www.naver.com">클릭하세요..(naver)</a>
+</body>
+</html>

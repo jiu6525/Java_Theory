@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script>
+	$(function(){
+		//글자색, 배경색을 선택하는 select 태그
+		var sel = "<select>";
+			sel += "<option value='color'>글자색</option>";
+			sel += "<option value='background-color'>배경색</option>";
+			sel += "</select>";
+			
+		//컬러명	"red", "#ff0000"-> #f00, rgb(255,0,0)
+		var rgb = ['rgb(255,0,0)', 'blue', '#0f0', '#888', 'pink', 'cyan', 'orange', 'yellow']
+		var colorName = ['빨강', '파랑', '초록', '하늘', '분홍', '청록', '주황', '노랑'];
+		
+		var colorSel ='<select>';
+		rgb.map(function(data, idx){
+			colorSel += "<option value='" +data+ "'>"+colorName[idx]+"></option>";
+			
+		});
+		colorSel += "</select>";
+		
+		$('#menu').append(sel);
+		$('#menu').append(colorSel);
+		
+		$('#menu>select:eq(1)').change(function(){
+			$("#article").css($('#menu>select:first').val(),$("#menu>select:last").val());
+		});
+		
+		//글자 크기 설정하는 버튼추가
+		
+		$('#menu').append('<input type="button" value="-"/>');
+		$('#menu').append('<input type="button" value="0"/>');
+		$('#menu').append('<input type="button" value="+"/>');
+		
+		$("#menu>input").click(function(){
+			//이벤트가 발생한 버튼은 input태그들 중에 몇번째 있는지 index를 구한다.
+			var idx = $("#menu>input").index(this);
+			
+			//현재 글자 크기
+			var fontSize= parseInt($('#article').css('font-size'));	// 16px -> 15px
+			if(idx==0){// -버튼선택
+				fontSize--;
+			}else if(idx==1){// 0버튼선택-> 16px
+				fontSize = 16;
+			}else if(idx==2){// +버튼선택
+				fontSize++;
+			}
+			
+			//문자크기 변경하기
+			$('#article').css('font-size',fontSize+'px')
+		});
+		
+		//$('#article').css('font-size','1cm');//pt, px, cm, mm, in.....
+		console.log( $("#article").css('font-size'));
+		var basizSize = parseInt($("#article").css('font-size'));
+	});
+
+</script>
+</head>
+<body>
+<div id='menu'></div>
+<hr/>
+<div id='article'>
+그룹 뉴진스(NewJeans)가 미국 빌보드 ‘핫 100’에서 자체 최고 순위를 또 한 번 경신했다.
+미국 빌보드가 14일(현지시간) 발표한 최신 차트(2월 18일 자)에 따르면 뉴진스(민지, 하니, 다니엘, 해린, 혜인)의 타이틀곡 ‘OMG’는 ‘핫 100’서 74위를 기록했다.
+이는 전주 77위 대비 3계단 상승한 순위다. 뉴진스의 ‘OMG’는 빌보드 ‘핫 100’에 91위(1월 28일 자)로 첫 진입한 뒤 79위(2월 4일 자), 77위(2월 11일 자)를 거쳐 매주 상승세를 타고 있다.
+수록곡 ‘디토(Ditto0’는 이번 주 빌보드 ‘핫 100’서 82위를 차지하며 5주 연속 차트인에 성공했다. 이 노래는 96위로 빌보드 ‘핫 100’(1월 21일 자) 진입 후 그간 소폭 순위 변동을 보이다가 이번 주 8계단 반등했다. ‘OMG’의 인기가 높아지면서 수록곡 ‘디토’에 대한 글로벌 음악팬들의 관심과 사랑이 동반 상승한 것으로 보인다.
+뉴진스는 미국 현지 활동이나 프로모션 없이 글로벌 팬들 사이에서 입소문을 타며 반향을 일으키고 있다. 데뷔한 지 6개월 만에 미국 빌보드 ‘핫100’에 두 곡을 동시에 올려놓은 것은 괄목할 만한 성과다.
+
+</div>
+</body>
+</html>
