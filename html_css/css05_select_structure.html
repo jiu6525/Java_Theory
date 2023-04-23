@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul,li{margin:0; padding:0; list-style-type: none;}
+        #menu,#boardDiv{
+            /* height: 50px; */
+            overflow: auto;
+        }
+        #menu li{
+            float: left;
+            height: 50px;
+            line-height: 50px;
+            width: 150px;
+
+        }
+        /* 구조선택자
+            2n:2의 배수번째 3n:3의 배수번째 2n+1 홀수번째
+            :nth-child(2n)
+        
+        */
+
+        #menu>li:nth-child(2n){
+            background-color: lightblue;
+        }
+
+        #menu>li:nth-child(2n+1){
+            background-color: yellow;
+        }
+
+        #menu>li:nth-child(3){
+            color :red;
+        }
+
+
+        /* 
+            :first-child -> 처음객체
+            :last-child -> 끝객체
+        */
+
+        #menu>li:first-child{
+            border-radius: 20px 0px 0px 20px;
+        }
+
+         #menu>li:last-child{
+            border-radius: 0px 20px 20px 0px;
+        }
+        /* 게시판 목록 만들기 */
+        #boardDiv{
+            width: 1000px;
+            margin: 50px auto;
+        }
+        #boardDiv li{
+            float: left;
+            width: 10%;
+            height: 40px;
+            line-height: 40px;
+            border-bottom: 1px solid #ddd;
+        }
+        #boardDiv li:nth-child(5n+2){
+            width : 60%;
+            text-align: left;
+        }
+    </style>
+</head>
+<!-- 
+    html속성
+    oncontextmenu : 마우스 오른쪽 버튼 메뉴 제어
+    onselectstart : 선택시작 불가능설정
+ -->
+<body oncontextmenu="return false" onselectstart="return false">
+    <ul id="menu">
+        <li>AAAAAA</li>
+        <li>BBBBBB</li>
+        <li>CCCCCC</li>
+        <li>DDDDDD</li>
+        <li>EEEEEE</li>
+        <li>FFFFFF</li>
+    </ul>
+    <div id="boardDiv">
+        <ul>
+            <li>번호</li>
+            <li>제목</li>
+            <li>작성자</li>
+            <li>등록일</li>
+            <li>조회수</li>
+
+            <li>100</li>
+            <li>구조선택자1</li>
+            <li>jiu</li>
+            <li>12-29 09:38</li>
+            <li>1</li>
+
+          
+        </ul>
+    </div>
+    <style>
+        /* 구조선택자
+            :nth-of-type -> 홀수번째, 짝수번째,...
+            :first-of-type -> 처음객체선택
+            :last-of-type -> 마지막 객체 선택
+        */
+        #d1>h1:nth-of-type(2n){
+            background-color: pink;
+
+        }
+        #d1>h2:nth-of-type(2n+1){
+            background-color: yellow;
+        }
+
+        #d1>h1:first-of-type{
+            color: yellowgreen;
+        }
+        #d1>h2:last-of-type{
+            color:orangered;
+        }
+    </style>
+    <div id="d1">
+        <h1>구조 선택자 11111</h1>
+        <h2>구조 선택자 AAAAA</h2>
+        <h1>구조 선택자 22222</h1>
+        <h2>구조 선택자 AAAAA</h2>
+        <h1>구조 선택자 33333</h1>
+        <h2>구조 선택자 AAAAA</h2>
+        <h1>구조 선택자 44444</h1>
+        <h2>구조 선택자 AAAAA</h2>
+    </div>
+    <style>
+        /* 텍스트 스타일
+            ::first-letter -> 문단의 첫번째 문자에 스타일 적용 
+            ::first-line -> 문단의 첫번째 줄에 스타일 적용
+        
+        */
+        #txt::first-letter{
+            font-size :1.5em;
+            color: yellow;
+            background: green;
+
+        }
+
+        #txt::first-line{
+            text-decoration: underline;
+        }
+
+        #txt::selection{
+            background: #000;
+            color: yellow;
+            font-weight: bold;
+        }
+    </style>
+
+    <div id="txt">
+        대전에서 재건축·재개발 사업이 속도감 있게 추진되면서 내년부터 약 9000여가구의 아파트가 이 같은 정비사업을 통해 순차적으로 공급될 것으로 전망된다.대전에서 재건축·재개발 사업이 속도감 있게 추진되면서 내년부터 약 9000여가구의 아파트가 이 같은 정비사업을 통해 순차적으로 공급될 것으로 전망된다.
+        대전에서 재건축·재개발 사업이 속도감 있게 추진되면서 내년부터 약 9000여가구의 아파트가 이 같은 정비사업을 통해 순차적으로 공급될 것으로 전망된다.대전에서 재건축·재개발 사업이 속도감 있게 추진되면서 내년부터 약 9000여가구의 아파트가 이 같은 정비사업을 통해 순차적으로 공급될 것으로 전망된다.
+        대전에서 재건축·재개발 사업이 속도감 있게 추진되면서 내년부터 약 9000여가구의 아파트가 이 같은 정비사업을 통해 순차적으로 공급될 것으로 전망된다.대전에서 재건축·재개발 사업이 속도감 있게 추진되면서 내년부터 약 9000여가구의 아파트가 이 같은 정비사업을 통해 순차적으로 공급될 것으로 전망된다.
+        대전에서 재건축·재개발 사업이 속도감 있게 <s>추진되면서 내년부터 약 9000여가구의 아파트가 이 같은 정비사업을 통해 순차적으로 </s>공급될 것으로 전망된다.대전에서 재건축·재개발 사업이 속도감 있게 추진되면서 내년부터 약 9000여가구의 아파트가 이 같은 정비사업을 통해 순차적으로 공급될 것으로 전망된다.
+        대전에서 재건축·재개발 사업이 속도감 있게 <strike>추진되면서 내년부터 약 9000여가구의 아파트가 이 같은 정비사업을 통해 순차적으로 </strike>공급될 것으로 전망된다.대전에서 재건축·재개발 사업이 속도감 있게 추진되면서 내년부터 약 9000여가구의 아파트가 이 같은 정비사업을 통해 순차적으로 공급될 것으로 전망된다.
+        대전에서 재건축·재개발 사업이 속도감 있게 추진되면서 내년부터 약 9000여가구의 아파트가 이 같은 정비사업을 통해 순차적으로 공급될 것으로 전망된다.대전에서 재건축·재개발 사업이 속도감 있게 추진되면서 내년부터 약 9000여가구의 아파트가 이 같은 정비사업을 통해 순차적으로 공급될 것으로 전망된다.
+        
+        
+
+
+
+    </div>
+</body>
+</html>

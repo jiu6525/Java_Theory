@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css를 사용한 class 생성</title>
+    <style>
+        /* 아이디 선택자 : 한페이지에 1개만 존재해야함 2곳 사용할시 자바스크립트 에러발생 */
+        #jiu{
+            font-size:40px;   /*글자크기*/
+        }
+        /*클래스 선택자 : 한페이지에 여러곳에 같은 클래스명을 사용할수 있음*/
+        .c1{
+            background-color: pink;
+            margin: 50px 20px;
+        }
+        .c2{
+            font-weight: bolder;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>JAVA</li>
+        <li class="c1 c2">JavaScript</li>
+        <li id="jiu">html</li>
+        <li >css</li>
+        <li class="c1">ajax</li>
+
+    </ul>
+</body>
+</html>

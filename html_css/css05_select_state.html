@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 상태선택자 */
+
+
+        /* :focus -> 커서가 컴퍼넌트에 들어가면 */
+        input:focus{
+            background-color: azure;
+            font-size: 2em;
+            color: aqua;
+        }
+
+
+        /* :checked -> 컴퍼넌트를 체크하면*/
+        input:checked{
+            width: 50px;
+            height: 50px;
+        }
+
+
+        /* :disabled -> 비활성화된 컴퍼넌트에 적용 */
+        input:disabled{
+            background-color: blue;
+        }
+
+        /* :enabled -> 활성화된 컴퍼넌트에 적용 */
+        input:enabled{
+            background: pink;
+        }
+
+    </style>
+</head>
+<body>
+    <form method="get"   action="Hi.jsp">
+        아이디 : <input type="text" name="userid" value="jiu" size="50" maxlength="10" placeholder="아이디 입력"/> <br/>
+        비밀번호 : <input type="password" name="userpwd" placeholder="비밀번호 입력"/><br/>
+        이메일 : <input type="email" name="email" value=" " disabled/><br/>
+        성별 : <input type="radio" name="gender" value="M"/> 남
+                <input type="radio" name="gender" value="F" checked/> 여<br/>
+        취미 : <input type="checkbox" name="hobby" value="축구"> 축구
+                <input type="checkbox" name="hobby" value="농구"> 농구
+                <input type="checkbox" name="hobby" value="야구" checked> 야구
+                <input type="checkbox" name="hobby" value="배구"> 배구
+                <input type="checkbox" name="hobby" value="탁구"> 탁구<br/>
+    </form>
+</body>
+</html>

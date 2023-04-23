@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: beige;
+        }
+        /* border-style : 선의 모양(solid : 실선, dotted : 점선, dashed, double, none, groove : 홈) 
+           border-color : 선의 색상
+           border-width : 선의 두께
+        */
+        div{
+            /* border-top-style, 
+               border-right-style, 
+               border-bottom - style,
+               border-left-style */
+            border-style : solid dashed double double;
+
+            /*  border-top-color, 
+                border-right-color,
+                border-bottom-color,
+                border-left-color */
+            border-color: gray black greenyellow;
+
+            border : 5px solid orange;
+            border-radius: 50px 50px;
+            margin : 20px;
+            width: 300px;
+            height: 300px;
+            overflow: auto; /*hidden, auto, scroll*/
+        }
+        img{
+            width: 300px;
+            border: 5px blue solid;
+            border-radius: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+         요소는 "순수" 컨테이너로서 아무것도 표현하지 않습니다.
+         대신 다른 요소 여럿을 묶어 class나 id 속성으로 꾸미기 쉽도록 돕거나, 
+         문서의 특정 구역이 다른 언어임을 표시(lang 속성 사용)하는 등의 용도로 사용할 수 있습니다.
+    </div>
+    <div>
+        요소는 "순수" 컨테이너로서 아무것도 표현하지 않습니다.
+        대신 다른 요소 여럿을 묶어 class나 id 속성으로 꾸미기 쉽도록 돕거나, 
+        문서의 특정 구역이 다른 언어임을 표시(lang 속성 사용)하는 등의 용도로 사용할 수 있습니다.
+   </div>
+   <img src="./img/배경.jpg"/>
+</body>
+</html>

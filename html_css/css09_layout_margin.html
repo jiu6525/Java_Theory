@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레이아웃</title>
+    <style>
+        body{margin:0;}
+        .header{
+            background-color: beige;
+            height: 200px;
+        }
+        .container{
+            background-color: azure;
+            width: 1000px;
+            height: 1000px;
+            margin:0 auto;  /*div를 전체폭의 가운데로 배치한다.*/
+            text-align: center;
+        }
+
+        .footer{
+            height: 100px;
+            background-color: gray;
+        }
+        /*자손선택자 ->  >, 공백문자 -> 후손선택자*/
+        .header>div{
+
+            width: 1000px;
+            height: 150px;
+            margin: 0 auto;
+            /*px, pt, cm, mm, in(inch), em:1em 기본크기 1.2em 0.9em */
+            font-size : 3em;
+            /*문자를 left,right,center,로 좌우정렬*/
+            text-align: center;
+            line-height: 200px; 
+        }
+        /* 메뉴만들기 */
+        .topMenu, topMenu>li {
+            margin: 0;
+            padding: 0;
+        }
+        .topMenu{
+            /* background: aqua; */
+            height: 50px;
+            width: 1000px;
+            margin: 0 auto;
+        }
+  
+        .topMenu>li{
+            float: left;
+            /* background: lightblue; */
+            list-style-type: none;
+            width: 20%;
+            height: 50px;
+            line-height: 50px;
+            text-align: center; /*좌우정렬 left,right,center*/
+            font-size: 1.2em;
+            color: violet;
+        }
+        /* 
+        a태그 링크시 스타일
+            가상클래스 
+            :link -> 링크시, :visited -> 방문페이지, :hover -> 마우스오버, :active -> 누른상태
+        
+        text-decorration : underline(밑줄), overline(윗줄), line-through(취소선), none(줄없음)
+            */
+  /*  
+        a:link{*//*a 태그에 링크가 걸려있을경우*/
+            /* color: lawngreen; */
+            /* text-decoration: none;
+        } */
+
+        /* a:visited{방문한 링크일때
+            color:gold;
+            text-decoration: none;
+        }
+
+        a:hover{링크위에 마우스가 올라가면
+            color: orange;
+            text-decoration: underline;
+        }
+
+        a:active{링크를 누른상태 일때
+            color:brown;
+    
+        } */
+        a:link, a:visited{
+            color:green;
+            text-decoration: none;
+        }
+
+        a:hover{
+            color:red;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div>
+            멀티캠퍼스
+        </div>
+        <ul class="topMenu">
+            <li><a href="../html/html01_index.html">홈</a></li>
+            <li><a href="http://www.google.co.kr" target="_blank">구굴</a></li>
+            <li><a href="#">커뮤니티</a></li>
+            <li><a href="#">로그인</a></li>
+            <li><a href="#">고객센터</a></li>
+        </ul>
+    </div>
+    <div class="container">
+        <br/>
+        <h1>컨텐츠</h1>
+        <img src="../img/배경화면.jpg">
+    </div>
+    <div class="footer">
+        하단
+
+    </div>
+</body>
+</html>

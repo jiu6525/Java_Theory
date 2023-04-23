@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="C:\Users\강지우\Pictures\Saved Pictures\배경화면.jpg" width="300">
+    <h1>표 만들기</h1>
+    <pre>
+        table태그 : 표의 시작
+        tr태그 : 표의 줄생성
+        td태크 : 표의 칸생성
+        th태그 : 표의 첫번째줄의 내용 head로 강조, 가운데 정렬 하고자 할 때
+        caption태그 : 표의 제목
+    </pre>
+
+    <table border="1">
+        <caption><i>표 연습하기</i></caption>
+        <tr>
+            <th>제목</th>
+            <th>내용</th>
+            <th>비고</th>
+        </tr>
+        <tr>
+            <td>첫번째 칸</td>
+            <td>
+                <ul>
+                    <li>딸기</li>
+                    <li>포도</li>
+                </ul>
+            </td>
+            <td>
+                세번째 칸
+            </td>
+        </tr>
+        <tr>
+            <td>두번째 줄</td>
+            <td>AAAA</td>
+            <td>
+                <ol>
+                    <li>해바라기</li>
+                    <li>튤립</li>
+                    <li>장미</li>
+                    <li>민들래꽃</li>
+
+                </ol>
+            </td>
+        </tr>
+
+
+    </table>
+    <hr>
+    <pre>
+        표에서 행의 수와 칸수가 다를때
+        colspan속성 : 칸을 병합
+        rowspan속성 : 행을 병합
+    </pre>
+    <table border="1">
+        <tr>
+            <td>111111111111</td>
+            <td colspan="2">222222222222</td>
+        </tr>
+        <tr>
+            <td colspan="2">3333333333</td>
+            <td>444444444444</td>
+        </tr>
+        <tr>
+            <td>55555555555</td>
+            <td rowspan="2">66666666666</td>
+            <td>77777777777</td>
+        </tr>
+        <tr>
+            <td>88888888888</td>
+            <td>99999999999</td>
+        </tr>
+    </table>
+</body>
+</html>

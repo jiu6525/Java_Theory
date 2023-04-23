@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div{
+            width: 300px;   
+            height: 300px;  
+            border: 1px solid gray;
+        }
+        /* left, top,right, bottom */
+        /* 
+            position : 좌표를 지정하기 위해서는 absolute, relative, fixed속성이 설정되어야 한다.
+                       태그의 기본 position은 static이며 좌표가 설정되지 않는다.
+                
+                absolute : 공간의 반납한다.
+                relative : 공간을 유지한다. 원위치로 좌표의 기준을 잡는다. 
+                fixed : 공간을 반납한다.
+            z-index : 겹칠때 위아래순서 조정가능 숫자가 높을수록 위에 표시된다.
+                       position 속성이 absolute, relative, fixed 이여야 한다.
+
+        */
+        .div1{
+            background: pink;
+            position :fixed;
+            right: 100px;
+            bottom: 10px;
+            
+        }
+        .div2{
+            background: lightblue;
+            position: absolute;
+            left:100px;
+            top:100px
+            /*객체가 겹칠때 순서정하기 값이 클수록 위에옴*/
+           
+        }
+        .div3{
+            
+            background: olivedrab;
+            position: relative;
+            left: 200px;
+            top: -100px;
+        }
+        .div4{
+            background: coral;
+            z-index: 200;
+        }
+        img{
+            width: 100px;
+            height: 100px;
+        }
+        /*하위객체의 좌표설정은 상위에 객체의 position이 absolute, relative, fixed인 경우 해당객체가 기준점
+          static이면 body가 기준점이 된다.
+        */
+        #i1{
+            position: absolute;
+            left: 50px;
+            top: 50px;
+            size: 100px;
+        }
+        #i2{
+            position: absolute;
+            left: 50px;
+            top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="div1"></div>
+    <div class="div2">
+        <img src="../img/배경화면.jpg" id="i1"/>
+    </div>
+    <div class="div3"></div>
+    <div class="div4">
+        <img src="../img/배경.jpg" id="i2"/>
+    </div>
+
+</body>
+</html>

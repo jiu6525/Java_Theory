@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form 태그 연습하기</title>
+</head>
+<body>
+    <h1>폼 양식 만들기</h1>
+    <pre>
+        name : 변수 -> 서버로 데이터가 넘어갈때 사용하는 변수
+        size : 박스의 크기(문자수)
+        maxlength : 입력가능한 최대 글자수
+        readonly : 읽기전용
+        disabled : 비활성화
+        
+        checked : checkbox,radio 에서 기본선택상태를 설정한다.
+
+        데이터 전송방식에은 get과 post 방식이 있는데 get은 주소창에 입력한 내용이 출력 post는 반대
+        -> form 태그에 method 속성 사용
+    </pre>
+    <form method="get"   action="Hi.jsp">
+        아이디 : <input type="text" name="userid" value="jiu" size="50" maxlength="10" placeholder="아이디 입력"/> <br/>
+        비밀번호 : <input type="password" name="userpwd" placeholder="비밀번호 입력"/><br/>
+        이메일 : <input type="email" name="email"/><br/>
+        성별 : <input type="radio" name="gender" value="M"/> 남
+                <input type="radio" name="gender" value="F" checked/> 여<br/>
+        취미 : <input type="checkbox" name="hobby" value="축구"> 축구
+                <input type="checkbox" name="hobby" value="농구"> 농구
+                <input type="checkbox" name="hobby" value="야구" checked> 야구
+                <input type="checkbox" name="hobby" value="배구"> 배구
+                <input type="checkbox" name="hobby" value="탁구"> 탁구<br/>
+        여러줄의 문자열을 입력할수 있는 태그 : 
+        <br/>    <textarea name="memo" rows="10" cols="50">값이 입력되는 곳</textarea><br/>
+        관심분야 : <select name="interest">
+                    <option selected>==목록==</option>
+                    <option value="0">싸이클</option>
+                    <option value="1">싸이클1</option>
+                    <option value="2">싸이클2</option>
+                    <option value="3">싸이클3</option>
+                    <option value="4">싸이클4</option>
+                    <option value="5">싸이클5</option>
+                  </select><br/><br/>
+        파일첨부 : <input type="file" name="filename"/><br/><br/>
+        숨김데이터 : <input type="hidden" name="nickname" value="jiu"/><br/><br/>
+        전송예시 1
+        <input type="submit" value="전송하기"/> 서버로 전달가능<br/><br/>
+        전송예시 2
+        <input type="button" value="전송하기"/> 서버로 전달X<br/><br/>
+        전송예시 3
+        <button>전송하기</button> 서버로 전달가능<br/><br/>
+        <input type="reset" value="다시쓰기"/><br/>
+        <input type="image" src="./img/nate_logo.png"/><br/>
+        <hr/>
+        date : <input type="date" name="date1"/> 날짜만 선택하기<br/>
+        datetime-local : <input type="datetime-local" name="datetime"/> 날자와 시간을 선택하기<br/>
+        month : <input type="month" name="date3"/> 년,월만 선택하기 날짜는 X <br/>
+        week : <input type="week" name="date4"/> 지금이 몇주차인지를 출력<br/>
+        color : <input type="color" name="clr"/> 색깔을 선택<br/>
+        number : <input type="number" name="n" min="11" max="20" step="2"/> 숫자를 선택<br/>
+        range : <input type="range" name="r" min="1" max="10" value="1"/>
+    </form>
+    
+</body>
+</html>
