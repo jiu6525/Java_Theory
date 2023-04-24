@@ -1,0 +1,53 @@
+@charset "UTF-8";
+body,ul,li{
+	margin:0;
+	padding:0;
+	list-style-type:none;
+}
+
+.container{
+	width:900px;
+	margin:0 auto;
+	overflow:auto;
+}
+
+/*메뉴스타일*/
+.mainMenu{
+	background-color:olive;
+	overflow:auto;
+	
+}
+.mainMenu li{
+	float:left;
+	width:200px;
+	height:80px;
+	line-height:80px;
+	text-align:center;
+	
+	color:#fff;
+	font-size:1.3em;
+}
+
+.bottom{
+	text-align:center;
+	height:50px;
+	line-height:50px;
+	background-color:#ddd;
+}
+
+/*게시판 스타일*/
+
+.boardList>li{
+	float:left;
+	width:10%;
+	height:40px;
+	
+	line-height:40px;
+	border-bottom:1px solid gray;
+}
+.boardList>li:nth-child(5n+2){
+	width:60%;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+}
